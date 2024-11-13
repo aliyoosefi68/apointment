@@ -11,7 +11,7 @@ export class UserEntity {
   lastname: string;
   @Column({ unique: true })
   mobile: string;
-  @Column({ unique: true })
+  @Column({ unique: true, nullable: true })
   username: string;
   @Column({ nullable: true })
   password: string;
