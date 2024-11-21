@@ -45,6 +45,18 @@ export class ForgetPasswordDto {
   mobile: string;
 }
 
+export class ChangePasswordDto {
+  @ApiProperty()
+  @IsJWT({ message: "توکن ارسال شده صحیح نمیباشد" })
+  token: string;
+
+  @ApiProperty()
+  @Length(8, 16, { message: "رمز عبور باید بین ۸ الی ۱۶ کاراکتر باشد" })
+  newPassword: string;
+  @ApiProperty()
+  confirmPassword: string;
+}
+
 export class RefreshTokenDto {
   @ApiProperty()
   @IsJWT({ message: "توکن ارسال شده صحیح نمیباشد" })

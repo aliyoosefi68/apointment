@@ -1,8 +1,9 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { AuthService } from "./auth.service";
-import { ApiConsumes, ApiTags } from "@nestjs/swagger";
+import { ApiConsumes, ApiQuery, ApiTags } from "@nestjs/swagger";
 import { FormType } from "src/common/enum/formType.enum";
 import {
+  ChangePasswordDto,
   CheckOtpDto,
   ForgetPasswordDto,
   LoginDto,
@@ -42,7 +43,15 @@ export class AuthController {
 
   @Post("forget-password")
   @ApiConsumes(FormType.Urlencoded, FormType.Json)
-  forgetPassword(@Body() dto: ForgetPasswordDto) {}
+  forgetPassword(@Body() dto: ForgetPasswordDto) {
+    return this.authService.forgetPassword(dto);
+  }
+
+  @Post("changeme")
+  @ApiConsumes(FormType.Urlencoded, FormType.Json)
+  changePassword(@Body() dto: ChangePasswordDto) {
+    return this.authService.changePassword(dto);
+  }
 
   @Post("refreshtoken")
   @ApiConsumes(FormType.Urlencoded, FormType.Json)
