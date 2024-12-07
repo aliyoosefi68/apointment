@@ -22,6 +22,7 @@ async function bootstrap() {
   SwaggerModule.setup("/swagger", app, swaggerDocument);
   await app.listen(3000, () => {
     console.log("http://localhost:3000");
+    console.log("http://localhost:3000/swagger");
   });
 }
 bootstrap();

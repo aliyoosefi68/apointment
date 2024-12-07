@@ -2,6 +2,8 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "./modules/auth/auth.module";
 import { UserModule } from "./modules/user/user.module";
+import { CategoryModule } from "./modules/category/category.module";
+import { ClinicModule } from "./modules/clinic/clinick.module";
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { UserModule } from "./modules/user/user.module";
     }),
     AuthModule,
     UserModule,
+    CategoryModule,
+    ClinicModule,
   ],
   controllers: [],
   providers: [],
